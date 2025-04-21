@@ -1,11 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
-import PlayerPage from "./[id]/page";
 import playersMockData from "@/data/playersMockData";
 // Mock Data (Replace with API data in a real app)
 
