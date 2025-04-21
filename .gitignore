@@ -1,0 +1,10 @@
+# Ignore all environment files
+.env
+.env.*
+
+# Ignore system files
+.DS_Store
+
+# Ignore dependencies and build outputs in subfolders
+**/node_modules/
+**/.next/
