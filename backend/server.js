@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 const allowedOrigins = [];
 
 if (process.env.NODE_ENV === 'production') {
-  allowedOrigins.push('https://ipl-dashboard-git-main-prathmesh-kulkarni-s-projects.vercel.app');
+  allowedOrigins.push('https://ipl-dashboard2.vercel.app');
 } else {
   allowedOrigins.push(process.env.CLIENT_URL || 'http://localhost:3000');
 }
@@ -45,7 +45,7 @@ app.get('/api/team-stats/:teamName', async (req, res) => {
 
   matches.forEach(match => {
     if (match.team1 === teamName || match.team2 === teamName) {
-      const season = match.season.slice(0, 4); // Simplify '2007/08' → '2007'
+      const season = match.season.slice(0, 4); 
       const stage = match.match_type;
       const won = match.winner === teamName;
 
@@ -189,7 +189,21 @@ app.get('/', (req, res) => {
   res.send('✅ Cricket API Backend is running. Use /api/featured-matches to get data.');
 });
 
+
 // --- Start Server ---
-app.listen(PORT, () => {
-  console.log(`🚀 Backend running at http://localhost:${PORT}`);
+// app.listen(PORT, () => {
+//   console.log(`🚀 Backend running at http://localhost:${PORT}`);
+// })const https = require('https');
+const fs = require('fs');
+const https = require('https');
+// --- Read SSL certificate files ---
+const sslOptions = {
+  key: fs.readFileSync('./ssl/server.key'),
+  cert: fs.readFileSync('./ssl/server.cert'),
+};
+
+// --- Start HTTPS Server ---
+https.createServer(sslOptions, app).listen(PORT, () => {
+  console.log(`🔒 HTTPS Server running at https://localhost:${PORT}`);
 });
+;
