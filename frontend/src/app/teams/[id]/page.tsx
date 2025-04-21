@@ -63,7 +63,7 @@ const TeamPage = () => {
 
     const fetchStats = async () => {
       try {
-        const res = await fetch(`${BASE_URL}api/team-stats/${team.name}`);
+        const res = await fetch(`${BASE_URL}/api/team-stats/${team.name}`);
         const data: PerformanceData = await res.json();
         setPerformance(data);
       } catch (error) {
@@ -75,7 +75,7 @@ const TeamPage = () => {
 
     const fetchStageStats = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/team-stage-stats/${team.name}`);
+        const res = await fetch(`${BASE_URL}/api/team-stage-stats/${team.name}`);
         const data: StageStatsData = await res.json();
         setStageStats(data);
       } catch (error) {
