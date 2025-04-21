@@ -190,20 +190,20 @@ app.get('/', (req, res) => {
 });
 
 
-// --- Start Server ---
-// app.listen(PORT, () => {
-//   console.log(`🚀 Backend running at http://localhost:${PORT}`);
-// })const https = require('https');
-const fs = require('fs');
-const https = require('https');
-// --- Read SSL certificate files ---
-const sslOptions = {
-  key: fs.readFileSync('./ssl/server.key'),
-  cert: fs.readFileSync('./ssl/server.cert'),
-};
+app.listen(PORT, () => {
+  console.log(`🚀 Backend running at http://localhost:${PORT}`);
+})
+// const https = require('https');
+// const fs = require('fs');
+// const https = require('https');
+// // --- Read SSL certificate files ---
+// const sslOptions = {
+//   key: fs.readFileSync('./ssl/server.key'),
+//   cert: fs.readFileSync('./ssl/server.cert'),
+// };
 
-// --- Start HTTPS Server ---
-https.createServer(sslOptions, app).listen(PORT, () => {
-  console.log(`🔒 HTTPS Server running at https://localhost:${PORT}`);
-});
-;
+// // --- Start HTTPS Server ---
+// https.createServer(sslOptions, app).listen(PORT, () => {
+//   console.log(`🔒 HTTPS Server running at https://localhost:${PORT}`);
+// });
+// ;

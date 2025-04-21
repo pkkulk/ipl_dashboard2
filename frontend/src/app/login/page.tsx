@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-
+import BASE_URL from "@/components/config";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -8,7 +8,7 @@ const Login = () => {
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:5000/test", {
+    const response = await fetch(`${BASE_URL}/test`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json", // Ensure the content type is JSON

@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import teamsMockData from "@/data/teamsMockData";
 import Image from "next/image";
+import BASE_URL from "@/components/config";
 import { useEffect, useState } from "react";
 import {
   XAxis,
@@ -62,7 +63,7 @@ const TeamPage = () => {
 
     const fetchStats = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/team-stats/${team.name}`);
+        const res = await fetch(`${BASE_URL}api/team-stats/${team.name}`);
         const data: PerformanceData = await res.json();
         setPerformance(data);
       } catch (error) {
