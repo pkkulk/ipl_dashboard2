@@ -48,8 +48,8 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button 
-          onClick={toggleMenu} 
-          className="lg:hidden focus:outline-none p-2"
+        onClick={toggleMenu}
+          className="lg:hidden focus:outline-none p-2 z-30"
         >
           {menu ? <LuX size={30} /> : <LuSquareMenu size={30} />}
         </button>
